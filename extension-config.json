@@ -1,7 +1,33 @@
 {
   "version": "1.0.0",
   "id": "@shopgate-project/categories-grid-view",
-  "configuration": {},
-  "components": [],
+  "configuration": {
+    "gridCardStyles": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": null,
+      "params": {
+        "type": "json" ,
+        "label": "Styles for grid card in glamor format"
+      }
+    },
+    "showCategoriesImages": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": true,
+      "params": {
+        "type": "checkbox" ,
+        "label": "Show categories images"
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "CategoryList",
+      "type": "portals",
+      "target": ["category.list", "browse.category-list"],
+      "path": "frontend/portals/CategoryList"
+    }
+  ],
   "steps": []
 }
