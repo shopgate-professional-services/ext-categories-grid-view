@@ -14,7 +14,7 @@
     "showCategoriesImages": {
       "type": "admin",
       "destination": "frontend",
-      "default": true,
+      "default": false,
       "params": {
         "type": "checkbox" ,
         "label": "Show categories images"
