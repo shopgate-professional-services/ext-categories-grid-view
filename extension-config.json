@@ -19,6 +19,15 @@
         "type": "checkbox" ,
         "label": "Show categories images"
       }
+    },
+    "categoriesImages": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": null,
+      "params": {
+        "type": "json" ,
+        "label": "Categories images urls"
+      }
     }
   },
   "components": [
