@@ -6,7 +6,7 @@ import {
   Grid, Image, Link, PlaceholderIcon,
 } from '@shopgate/engage/components';
 import { getCategoryRoute } from '@shopgate/engage/category';
-import { showCategoriesImages, gridCardStyles } from '../../config';
+import { showCategoriesImages, gridCardStyles, categoriesImages } from '../../config';
 
 const styles = {
   image: css({
@@ -31,26 +31,33 @@ const styles = {
 /**
  * @returns {JSX}
  */
-const CategoryCard = ({ category }) => (
-  <Grid.Item>
-    <Link
-      href={getCategoryRoute(category.id)}
-      state={{ title: category.name }}
-    >
-      {showCategoriesImages && (
-        <Fragment>
-          <div className={styles.image}>
-            {!category.imageUrl && <PlaceholderIcon className={styles.placeholderIcon} />}
-            {category.imageUrl && <Image src={category.imageUrl} />}
-          </div>
-        </Fragment>
-      )}
-      <div className={styles.name}>
-        {category.name}
-      </div>
-    </Link>
-  </Grid.Item>
-);
+const CategoryCard = ({ category }) => {
+  let { [category.id]: imageUrl } = categoriesImages || {};
+  if (!imageUrl) {
+    ({ imageUrl } = category);
+  }
+
+  return (
+    <Grid.Item>
+      <Link
+        href={getCategoryRoute(category.id)}
+        state={{ title: category.name }}
+      >
+        {showCategoriesImages && (
+          <Fragment>
+            <div className={styles.image}>
+              {!imageUrl && <PlaceholderIcon className={styles.placeholderIcon} />}
+              {imageUrl && <Image src={imageUrl} />}
+            </div>
+          </Fragment>
+        )}
+        <div className={styles.name}>
+          {category.name}
+        </div>
+      </Link>
+    </Grid.Item>
+  );
+};
 
 CategoryCard.propTypes = {
   category: PropTypes.shape().isRequired,
