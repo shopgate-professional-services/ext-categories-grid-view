@@ -8,6 +8,7 @@ Set the following value in your Shopgate Connect Admin:
 
 * showCategoriesImages (boolean) - show categories images
 * categoriesImages (json) - override categories images as map `{ id: image }`
+    - ID of auto created sale category is `sale`
 * gridCardStyles (json) - styles for grid card in glamor format
 
 ## Config example
