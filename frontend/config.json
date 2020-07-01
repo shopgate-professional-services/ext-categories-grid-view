@@ -1,0 +1,8 @@
+{
+  "gridCardStyles": null,
+  "showCategoriesImages": true,
+  "categoriesImages": {
+    "5": "https://picsum.photos/300/300",
+    "sale": "https://picsum.photos/300"
+  }
+}
