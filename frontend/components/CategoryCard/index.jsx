@@ -27,6 +27,9 @@ const styles = {
     height: '100%',
     color: themeConfig.colors.placeholder,
   }).toString(),
+  ellipsis: css({
+    hyphens: 'auto',
+  }).toString(),
 };
 
 /**
@@ -53,7 +56,7 @@ const CategoryCard = ({ category }) => {
           </Fragment>
         )}
         <div className={styles.name}>
-          <Ellipsis rows={3}>
+          <Ellipsis rows={3} className={styles.ellipsis}>
             {category.name}
           </Ellipsis>
         </div>
