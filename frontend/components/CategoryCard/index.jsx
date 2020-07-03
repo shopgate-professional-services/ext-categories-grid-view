@@ -6,6 +6,7 @@ import {
   Grid, Image, Link, PlaceholderIcon,
 } from '@shopgate/engage/components';
 import { getCategoryRoute } from '@shopgate/engage/category';
+import Ellipsis from '@shopgate/pwa-common/components/Ellipsis';
 import { showCategoriesImages, gridCardStyles, categoriesImages } from '../../config';
 
 const styles = {
@@ -52,7 +53,9 @@ const CategoryCard = ({ category }) => {
           </Fragment>
         )}
         <div className={styles.name}>
-          {category.name}
+          <Ellipsis rows={3}>
+            {category.name}
+          </Ellipsis>
         </div>
       </Link>
     </Grid.Item>
