@@ -36,6 +36,18 @@
       "type": "portals",
       "target": ["category.list", "browse.category-list"],
       "path": "frontend/portals/CategoryList"
+    },
+    {
+      "id": "CategoryListWidget",
+      "type": "widgets",
+      "path": "frontend/widgets/CategoryListWidget",
+      "description": "Category grid view widget"
+    },
+    {
+      "id": "PageContentWidgets",
+      "type": "portals",
+      "target": "page.content",
+      "path": "frontend/portals/PageContentWidgets"
     }
   ],
   "steps": []
