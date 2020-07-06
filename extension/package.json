@@ -1,0 +1,18 @@
+{
+  "name": "@shopgate-project/categories-grid-view",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shopgate-professional-services/ext-categories-grid-view.git"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "standard": "^14.3.3"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  }
+}
