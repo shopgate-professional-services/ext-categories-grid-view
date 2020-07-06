@@ -7,6 +7,7 @@ Show categories in grid view.
 Set the following value in your Shopgate Connect Admin:
 
 * showCategoriesImages (boolean) - show categories images
+* replaceCategoryListWidget (boolean) - replace default categories list widget with categories grid
 * categoriesImages (json) - override categories images as map `{ id: image }`
     - ID of auto created sale category is `sale`
 * gridCardStyles (json) - styles for grid card in glamor format
@@ -15,6 +16,7 @@ Set the following value in your Shopgate Connect Admin:
 ```json
 {
   "showCategoriesImages": true,
+  "replaceCategoryListWidget": true,
   "categoriesImages": {
     "sale": "https://picsum.photos/300",
     "5": "https://picsum.photos/300/300"

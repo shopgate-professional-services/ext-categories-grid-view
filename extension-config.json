@@ -20,6 +20,15 @@
         "label": "Show categories images"
       }
     },
+    "replaceCategoryListWidget": {
+      "type": "admin",
+      "destination": "backend",
+      "default": true,
+      "params": {
+        "type": "checkbox" ,
+        "label": "Replace default categories list widget"
+      }
+    },
     "categoriesImages": {
       "type": "admin",
       "destination": "frontend",
@@ -36,7 +45,20 @@
       "type": "portals",
       "target": ["category.list", "browse.category-list"],
       "path": "frontend/portals/CategoryList"
+    },
+    {
+      "id": "CategoryListWidget",
+      "type": "widgets",
+      "path": "frontend/widgets/CategoryListWidget",
+      "description": "Category grid view widget"
     }
   ],
-  "steps": []
+  "steps": [
+    {
+      "path": "extension/replaceWidget.js",
+      "hooks": ["shopgate.cms.getPageConfig.v1:after"],
+      "input": [{"key": "widgets"}],
+      "output": [{"key": "widgets"}]
+    }
+  ]
 }
