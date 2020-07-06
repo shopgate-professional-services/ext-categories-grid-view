@@ -37,6 +37,15 @@
         "type": "json" ,
         "label": "Categories images urls"
       }
+    },
+    "useBaseCategoriesImages": {
+      "type": "admin",
+      "destination": "backend",
+      "default": false,
+      "params": {
+        "type": "checkbox" ,
+        "label": "Use base categories images (not @2x size)"
+      }
     }
   },
   "components": [
@@ -59,6 +68,27 @@
       "hooks": ["shopgate.cms.getPageConfig.v1:after"],
       "input": [{"key": "widgets"}],
       "output": [{"key": "widgets"}]
+    },
+    {
+      "path": "extension/categories/categoriesImages.js",
+      "hooks": [
+        "shopgate.catalog.getRootCategories.v1:after",
+        "shopgate.catalog.getCategoryChildren.v1:after"
+      ],
+      "input": [{"key": "categories"}],
+      "output": [{"key": "categories"}]
+    },
+    {
+      "path": "extension/categories/categoryImages.js",
+      "hooks": ["shopgate.catalog.getCategory.v1:after"],
+      "input": [
+        {"key": "imageUrl"},
+        {"key": "children"}
+      ],
+      "output": [
+        {"key": "imageUrl"},
+        {"key": "children"}
+      ]
     }
   ]
 }
