@@ -46,6 +46,15 @@
         "type": "checkbox" ,
         "label": "Use base categories images (not @2x size)"
       }
+    },
+    "imageResolution": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": null,
+      "params": {
+        "type": "json" ,
+        "label": "Category image resolution"
+      }
     }
   },
   "components": [
