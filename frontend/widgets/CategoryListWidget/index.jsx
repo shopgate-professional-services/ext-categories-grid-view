@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { css } from 'glamor';
-import { getCategory as getCategoryAction, getCategoryChildren, getRootCategories } from '@shopgate/engage/category';
+import { fetchCategoryOrRootCategories as getCategoryAction, getCategoryChildren, getRootCategories } from '@shopgate/engage/category';
 import { useWidgetSettings } from '@shopgate/engage/core';
 import Grid from '../../components/Grid';
 import CategoryCard from '../../components/CategoryCard';
