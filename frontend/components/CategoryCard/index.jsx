@@ -7,7 +7,9 @@ import {
 } from '@shopgate/engage/components';
 import { getCategoryRoute } from '@shopgate/engage/category';
 import Ellipsis from '@shopgate/pwa-common/components/Ellipsis';
-import { showCategoriesImages, gridCardStyles, categoriesImages } from '../../config';
+import {
+  showCategoriesImages, gridCardStyles, categoriesImages, imageResolution,
+} from '../../config';
 
 const styles = {
   image: css({
@@ -22,10 +24,27 @@ const styles = {
     fontWeight: 700,
     textTransform: 'uppercase',
   }),
+  placeholder: css({
+    ...imageResolution && {
+      position: 'relative',
+      width: '100%',
+      ':before': {
+        display: 'block',
+        content: '""',
+        width: '100%',
+        paddingTop: `${100 * (imageResolution.height / imageResolution.width).toFixed(3)}%`,
+      },
+    },
+  }).toString(),
   placeholderIcon: css({
     width: '100%',
     height: '100%',
     color: themeConfig.colors.placeholder,
+    ...imageResolution && {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+    },
   }).toString(),
   ellipsis: css({
     hyphens: 'auto',
@@ -50,8 +69,17 @@ const CategoryCard = ({ category }) => {
         {showCategoriesImages && (
           <Fragment>
             <div className={styles.image}>
-              {!imageUrl && <PlaceholderIcon className={styles.placeholderIcon} />}
-              {imageUrl && <Image src={imageUrl} />}
+              {!imageUrl && (
+                <div className={styles.placeholder}>
+                  <PlaceholderIcon className={styles.placeholderIcon} />
+                </div>
+              )}
+              {imageUrl && (
+                <Image
+                  src={imageUrl}
+                  {...imageResolution && { resolutions: [imageResolution] }}
+                />
+              )}
             </div>
           </Fragment>
         )}
